@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="submit(name)">
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" th:value="${name}"/>
+    </div>
+</div>
+<input th:fragment="id" type="hidden" id="id" name="id" th:value="${entity.id}"/>
+</body>
+</html>

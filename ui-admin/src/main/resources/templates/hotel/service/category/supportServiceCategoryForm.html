@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments/header :: head">
+</head>
+<body>
+<script type="text/javascript" th:src="@{/static/js/My97DatePicker/WdatePicker.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/plugins/ueditor/ueditor.config.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/plugins/ueditor/ueditor.all.js}"></script>
+<div th:replace="fragments/common :: nav">nav</div>
+<div class="container">
+    <a class="btn btn-primary" th:href="@{./list}">返回列表</a>
+    <hr/>
+    <form id="form" class="form-horizontal" th:action="@{/hotel/support/service/save}" method="post">
+        <input type="hidden" id="id" name="id" th:value="${entity.id}"/>
+        <div class="form-group">
+            <span class="col-sm-2 control-label" for="name">名称:</span>
+            <div class="col-sm-10">
+                <input type="text" name="name" id="name" class="form-control"
+                       placeholder="名称"/>
+            </div>
+        </div>
+    </form>
+    <hr/>
+    <div class="form-group">
+        <a class="btn btn-success" onclick="ajaxSubmit();">提交</a>
+    </div>
+</div>
+<script th:inline="javascript">
+
+    $(document).ready(function () {
+        var id = $("#id").val();
+        if (isNotEmpty(id)) {
+            fillData({
+                url: ctx + "hotel/service/category/get", params: {id: id}, afterFill: function () {
+                }
+            });
+        }
+    });
+
+    function ajaxSubmit() {
+        $.post({
+            url: ctx + "hotel/service/category/save",
+            data: $('#form').serialize(),// 你的formid
+            error: function (request) {
+                console.log(request);
+                alert("Connection error");
+            },
+            success: function (data) {
+                window.location.href = "./list";
+            }
+        });
+    }
+</script>
+<script th:src="@{/static/js/custom-editor.js}"></script>
+</body>
+</html>

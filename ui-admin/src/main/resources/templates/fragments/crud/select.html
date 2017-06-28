@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="not-required(name,label,options)" class="form-group">
+    <label class="col-sm-2 control-label" th:for="${name}" th:text="${label}"></label>
+    <div class="col-sm-6">
+        <select th:id="${name}" th:name="${name}" class="form-control">
+            <option th:each="type:${options}" th:text="${type.name}" th:value="${type.id}"></option>
+        </select>
+    </div>
+</div>
+</body>
+</html>

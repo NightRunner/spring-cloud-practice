@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments/header :: head">
+</head>
+<title>增加会员</title>
+<body>
+<div th:replace="fragments/common :: nav">nav</div>
+<script th:replace="fragments/crud/script :: all(@{/member})"></script>
+<div class="container">
+    <div>
+        <a class="btn btn-primary" th:href="@{./list}">会员列表</a>
+        <div id="messageBox"></div>
+    </div>
+    <hr/>
+    <form id="form" class="form-horizontal" th:action="@{/member/save}" method="post">
+        <div th:replace="fragments/crud/submit :: id"></div>
+        <div th:replace="fragments/crud/input :: text-required('loginName','登陆用户名')"></div>
+        <div th:replace="fragments/crud/input :: number-required('mobilePhone','手机号')"></div>
+        <div th:replace="fragments/crud/input :: password-required('password','密码')"></div>
+        <div th:replace="fragments/crud/input :: text-required('nickName','昵称')"></div>
+        <div th:replace="fragments/crud/input :: email-required('email','邮箱')"></div>
+        <hr/>
+        <div th:replace="fragments/crud/submit :: submit('提交')"></div>
+    </form>
+</div>
+</body>
+</html>
