@@ -15,7 +15,7 @@ java -Xmx512m -jar service-hotel/target/hotel-service-1.0.0-SNAPSHOT.jar >hotel-
 java -Xmx512m -jar service-dict/target/dict-service-1.0.0-SNAPSHOT.jar  >dict-service.log &
 java -Xmx512m -jar service-line/target/line-service-1.0.0-SNAPSHOT.jar  >line-service.log &
 java -Xmx512m -jar service-scenery/target/scenery-service-1.0.0-SNAPSHOT.jar  >scenery-service.log &
-java -Xmx512m -jar service-member/target/scenery-service-1.0.0-SNAPSHOT.jar  >scenery-service.log &
+java -Xmx512m -jar service-member/target/member-service-1.0.0-SNAPSHOT.jar  >member-service.log &
 
 ```
 
