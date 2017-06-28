@@ -1,7 +1,5 @@
 #Spring-Cloud-Practice
 
-环境运行依赖rabbit-mq
-
 项目运行步骤(需先运行rabbit-mq):
 ```
 mvn clean package
