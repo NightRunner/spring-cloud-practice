@@ -40,7 +40,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.mhwx.platform.ZuulServerApplication</mainClass>
+                    <mainClass>org.nr.platform.ZuulServerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

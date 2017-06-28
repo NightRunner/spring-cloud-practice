@@ -44,7 +44,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.mhwx.platform.ConfigServerApplication</mainClass>
+                    <mainClass>org.nr.platform.ConfigServerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

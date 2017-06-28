@@ -32,7 +32,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.mhwx.platform.EurekaServerApplication</mainClass>
+                    <mainClass>org.nr.platform.EurekaServerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

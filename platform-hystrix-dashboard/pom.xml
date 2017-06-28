@@ -36,7 +36,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.mhwx.platform.HystrixDashboardApplication</mainClass>
+                    <mainClass>org.nr.platform.HystrixDashboardApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
