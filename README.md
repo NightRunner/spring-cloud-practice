@@ -16,13 +16,16 @@ java -Xmx256m -jar platform-zipkin-server/target/platform-zipkin-server-1.0.0-SN
 java -Xmx256m -jar platform-admin-dashboard/target/platform-admin-dashboard-1.0.0-SNAPSHOT.jar >admin-dashboard.log &
 java -Xmx256m -jar platform-config-server/target/platform-config-server-1.0.0-SNAPSHOT.jar >config-server.log &
 
-java -Xmx256m -jar ui-admin/target/admin-1.0.0-SNAPSHOT.jar >admin.log &
+java -Xmx256m -jar ui-admin/target/admin-ui-1.0.0-SNAPSHOT.jar >admin.log &
+java -Xmx256m -jar api/target/api-1.0.0-SNAPSHOT.jar >api.log &
 java -Xmx256m -jar service-hotel/target/hotel-service-1.0.0-SNAPSHOT.jar >hotel-service.log &
 java -Xmx256m -jar service-dict/target/dict-service-1.0.0-SNAPSHOT.jar  >dict-service.log &
 java -Xmx256m -jar service-line/target/line-service-1.0.0-SNAPSHOT.jar  >line-service.log &
 java -Xmx256m -jar service-scenery/target/scenery-service-1.0.0-SNAPSHOT.jar  >scenery-service.log &
 java -Xmx256m -jar service-member/target/member-service-1.0.0-SNAPSHOT.jar  >member-service.log &
-
+java -Xmx256m -jar service-visa\target\visa-service-1.0.0-SNAPSHOT.jar  >visa-service.log &
+java -Xmx256m -jar service-verify-code\target\verify-code-service-1.0.0-SNAPSHOT.jar  >visa-service.log &
+java -Xmx256m -jar service-sms\target\sms-service-1.0.0-SNAPSHOT.jar  >sms-service.log &
 ```
 
 windows
@@ -35,7 +38,8 @@ java -Xmx256m -jar platform-zipkin-server\target\platform-zipkin-server-1.0.0-SN
 java -Xmx256m -jar platform-admin-dashboard\target\platform-admin-dashboard-1.0.0-SNAPSHOT.jar >admin-dashboard.log &
 java -Xmx256m -jar platform-config-server\target\platform-config-server-1.0.0-SNAPSHOT.jar >config-server.log &
 
-java -Xmx256m -jar ui-admin\target\admin-1.0.0-SNAPSHOT.jar >admin.log &
+java -Xmx256m -jar ui-admin\target\admin-ui-1.0.0-SNAPSHOT.jar >admin.log &
+java -Xmx256m -jar api\target\api-1.0.0-SNAPSHOT.jar >api.log &
 java -Xmx256m -jar service-hotel\target\hotel-service-1.0.0-SNAPSHOT.jar >hotel-service.log &
 java -Xmx256m -jar service-dict\target\dict-service-1.0.0-SNAPSHOT.jar  >dict-service.log &
 java -Xmx256m -jar service-line\target\line-service-1.0.0-SNAPSHOT.jar  >line-service.log &
