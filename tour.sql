@@ -50,7 +50,7 @@ INSERT INTO `dict` VALUES ('8c02af80-10e3-4661-b35f-1b139891b35c', '国内酒店
 INSERT INTO `dict` VALUES ('ac9c891e-4d29-4408-b896-a0ac8172c22d', '商务签证', '2', 'visaType', '商务签证');
 INSERT INTO `dict` VALUES ('b0769e3d-79f3-464a-a9c7-c73df29ad015', '五星级', '5', 'hotelLevel', 'fiveStar');
 INSERT INTO `dict` VALUES ('ba2fb840-46aa-429d-9862-6952bf649a0c', 'A', '1', 'sceneryLevel', 'A');
-INSERT INTO `dict` VALUES ('bdc3d479-03d4-4269-96d4-85b01d9458ea', '青年旅舍', '6', 'hotelLevel', 'youthHoste');
+INSERT INTO `dict` VALUES ('bdc3d479-03d4-4269-96d4-85b01d9458ea', '青年旅舍ssss', '6', 'hotelLevel', 'youthHoste');
 INSERT INTO `dict` VALUES ('c02d0684-818f-4f00-bc2a-7380330f078e', '七天', '2', 'hotelBrand', '七天');
 INSERT INTO `dict` VALUES ('c05c182a-47ab-4696-861b-b26db9b87803', 'AA', '2', 'sceneryLevel', 'AA');
 INSERT INTO `dict` VALUES ('d95e2ae5-e652-491c-949c-b8d341850915', '四星级', '4', 'hotelLevel', 'fourStar');
@@ -200,7 +200,7 @@ CREATE TABLE `line` (
 -- ----------------------------
 -- Records of line
 -- ----------------------------
-INSERT INTO `line` VALUES ('389d5781-fcd2-4995-a5ab-1ae7b15e5d1e', '<p>1</p>', '<p>1</p>', '<p>1</p>', null, '<p>1</p>', '1', '<p>1</p>', '1', '1', '1', '1', null, '1', '1', ',', '1', '1', null, '1', '<p>1</p>');
+INSERT INTO `line` VALUES ('389d5781-fcd2-4995-a5ab-1ae7b15e5d1e', '<p>1</p>', '<p>1</p>', '<p>1fdsfds</p>', null, '<p>1</p>', '1', '<p>1</p>', '1', '1', '1', '1', null, '1', '1', ',', '1', '1', null, '1', '<p>1</p>');
 
 -- ----------------------------
 -- Table structure for `member`
@@ -224,7 +224,7 @@ CREATE TABLE `member` (
 -- ----------------------------
 -- Records of member
 -- ----------------------------
-INSERT INTO `member` VALUES ('031ce7b2-1aff-4dc4-90ab-1a9fea9f7ca3', '690732060@qq.com', '69073260@qq.com', '15010506169', '夜奔Er', 'nightrunner9787', null, '81924a36-ae8c-4492-b801-730b0f8412c5', '1', '595fd219-ceef-4585-968a-953b7854a22e', '1');
+INSERT INTO `member` VALUES ('031ce7b2-1aff-4dc4-90ab-1a9fea9f7ca3', '690732060@qq.com', '69073260@qq.com', '15010506169', '夜奔Er', '1234567', null, '81924a36-ae8c-4492-b801-730b0f8412c5', '1', '595fd219-ceef-4585-968a-953b7854a22e', '1');
 
 -- ----------------------------
 -- Table structure for `scenery`
@@ -256,7 +256,7 @@ CREATE TABLE `scenery` (
 -- Records of scenery
 -- ----------------------------
 INSERT INTO `scenery` VALUES ('88daf7a4-4212-4cf6-b543-1be10bc957a8', '1', '<p>1</p>', '<p>1</p>', '<p>1</p>', '1', '', '<p>1</p>', '5', '1', '', '1', '<p>1</p>', '1', '1', '<p>1</p>', '1', '74a54f8d-8bb6-4789-965f-a42eb1f55869');
-INSERT INTO `scenery` VALUES ('bbdfda36-0f2b-4bf9-8cc7-9c0d45f31827', '1', '<p>1</p>', '<p>1</p>', '<p>1</p>', '1', '', '<p>1</p>', '6', '1', '', '1', '<p>1</p>', '1', '1', '<p>1</p>', '1', null);
+INSERT INTO `scenery` VALUES ('bbdfda36-0f2b-4bf9-8cc7-9c0d45f31827', '1', '<p>1</p>', '<p>1</p>', '<p>fdsfdsfds1</p>', '1', '', '<p>1</p>', '6', '1', '', '1', '<p>1</p>', '1', '1', '<p>1</p>', '1', null);
 
 -- ----------------------------
 -- Table structure for `sms_log`
