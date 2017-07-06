@@ -11,6 +11,7 @@
 
     <artifactId>line-service</artifactId>
 
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

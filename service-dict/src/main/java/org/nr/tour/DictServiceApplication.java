@@ -33,7 +33,7 @@ public class DictServiceApplication {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.mhwx"))
+                .apis(RequestHandlerSelectors.basePackage("org.nr"))
                 .paths(PathSelectors.any())
                 .build();
     }

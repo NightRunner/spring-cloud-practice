@@ -6,6 +6,8 @@
     <groupId>org.nr.tour</groupId>
     <artifactId>tour-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <modules>
         <module>platform-config-server</module>
         <module>platform-eureka-server</module>
@@ -26,8 +28,12 @@
         <module>service-scenery</module>
         <module>service-sms</module>
         <module>ui-admin</module>
+        <module>service-visa</module>
+        <module>api</module>
+        <module>service-verify-code</module>
+        <module>service-visa</module>
+        <module>api</module>
     </modules>
-    <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

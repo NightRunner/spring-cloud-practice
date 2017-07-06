@@ -1,0 +1,69 @@
+package org.nr.tour.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.Date;
+
+/**
+ * @author chenhaiyang <690732060@qq.com>
+ */
+@Entity
+@Table(name = "sms_log")
+public class SMSLog extends IDEntity {
+
+    @Column(name = "code", length = 32)
+    private String code;
+
+    @Column(name = "mobile_phone", length = 32)
+    private String mobilePhone;
+
+    @Column(name = "type", length = 32)
+    private Integer type;
+
+    @Column(name = "origin_result", length = 64)
+    private String originResult;
+
+    @Column(name = "send_time")
+    private Date sendTime;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    public Date getSendTime() {
+        return sendTime;
+    }
+
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
+    }
+
+    public String getOriginResult() {
+        return originResult;
+    }
+
+    public void setOriginResult(String originResult) {
+        this.originResult = originResult;
+    }
+}

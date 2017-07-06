@@ -22,10 +22,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients
 @SpringBootApplication
 @EnableSwagger2
-public class SceneryServiceApplication {
+public class SMSServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SceneryServiceApplication.class, args);
+        SpringApplication.run(SMSServiceApplication.class, args);
     }
 
     @Bean

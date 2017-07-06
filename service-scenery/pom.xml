@@ -12,6 +12,7 @@
     <artifactId>scenery-service</artifactId>
 
 
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

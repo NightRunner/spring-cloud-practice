@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sms-service</artifactId>
+    <artifactId>api</artifactId>
 
     <dependencies>
         <dependency>
@@ -41,6 +41,10 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
         </dependency>
@@ -68,19 +72,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
-        </dependency>
 
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.nr.tour</groupId>
             <artifactId>common-domain</artifactId>
@@ -88,7 +85,7 @@
         </dependency>
         <dependency>
             <groupId>org.nr.tour</groupId>
-            <artifactId>common-service-definition</artifactId>
+            <artifactId>common-constant</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -98,7 +95,12 @@
         </dependency>
         <dependency>
             <groupId>org.nr.tour</groupId>
-            <artifactId>common-constant</artifactId>
+            <artifactId>common-rpc</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.nr.tour</groupId>
+            <artifactId>common-service-definition</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -114,7 +116,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.nr.tour.SMSServiceApplication</mainClass>
+                    <mainClass>org.nr.tour.APIApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
