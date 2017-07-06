@@ -31,8 +31,6 @@
         <module>service-visa</module>
         <module>api</module>
         <module>service-verify-code</module>
-        <module>service-visa</module>
-        <module>api</module>
     </modules>
 
     <parent>

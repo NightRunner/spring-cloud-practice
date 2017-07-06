@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-<head th:replace="fragments/header :: head">
+<head th:replace="fragments/header :: head('')">
 </head>
 <body>
 <script type="text/javascript" th:src="@{/static/js/plugins/My97DatePicker/WdatePicker.js}"></script>
@@ -13,19 +13,17 @@
     <hr/>
     <form id="form" class="form-horizontal" th:action="@{/hotel/save}" method="post">
         <div th:replace="fragments/crud/submit :: id"></div>
-        <div th:replace="fragments/crud/input :: text-required('name','酒店名称')"></div>
-        <div th:replace="fragments/crud/input :: text-not-required('pinyin','拼音简码')"></div>
-        <div th:replace="fragments/crud/input :: text-not-required('subtitle','副标题')"></div>
-        <div th:replace="fragments/crud/input :: text-not-required('contactInformation','酒店联系方式')"></div>
-        <div th:replace="fragments/crud/select :: not-required('type','类型',${typeList})"></div>
-        <div th:replace="fragments/crud/select :: not-required('level','级别',${levelList})"></div>
-        <div class="form-group">
-            <div th:include="fragments/crud/date-picker :: yyyy-mm-dd('openingTime','开业时间')"></div>
-            <div th:include="fragments/crud/date-picker :: yyyy-mm-dd('decorationTime','装修时间')"></div>
-        </div>
-        <div th:replace="fragments/crud/input :: text-not-required('address','地址')"></div>
-        <div th:replace="fragments/crud/editor :: have-label('briefDescription','简要描述')"></div>
-        <div th:replace="fragments/crud/editor :: have-label('introduction','酒店介绍')"></div>
+        <div th:replace="fragments/crud/new-input :: text('name','[酒店名称]')"></div>
+        <div th:replace="fragments/crud/new-input :: text('subtitle','![副标题]')"></div>
+        <div th:replace="fragments/crud/new-input :: text('contactInformation','![酒店联系方式]')"></div>
+        <div th:replace="fragments/crud/new-select :: dict('brand','hotelBrand','![所属品牌]')"></div>
+        <div th:replace="fragments/crud/new-select :: dict('type','hotelType','![类型]')"></div>
+        <div th:replace="fragments/crud/new-select :: dict('level','hotelLevel','![级别]')"></div>
+        <div th:include="fragments/crud/date-picker :: yyyy-mm-dd-not-required-labeled('openingTime','开业时间')"></div>
+        <div th:include="fragments/crud/date-picker :: yyyy-mm-dd-not-required-labeled('decorationTime','装修时间')"></div>
+        <div th:replace="fragments/crud/new-input :: text('address','![地址]')"></div>
+        <div th:replace="fragments/crud/new-editor :: default('briefDescription','[简要描述]')"></div>
+        <div th:replace="fragments/crud/new-editor :: default('introduction','[酒店介绍]')"></div>
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
                 <a href="#traffic-guide" aria-controls="traffic-guide" role="tab"
@@ -52,10 +50,10 @@
                 <div th:replace="fragments/crud/editor :: default('surroundingEnvironment')"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="position-distance">
-                <div th:replace="fragments/crud/editor :: default('positionDistance')"></div>
+                <div th:replace="fragments/crud/new-editor :: default('positionDistance','!')"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="special-tips">
-                <div th:replace="fragments/crud/editor :: default('specialTips')"></div>
+                <div th:replace="fragments/crud/new-editor :: default('specialTips','!')"></div>
             </div>
             <div role="tabpanel" class="tab-pane" id="append-service">
                 <div th:replace="fragments/crud/editor :: default('appendService')"></div>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: head">
+<head th:replace="fragments/header :: head('')">
 </head>
 <body>
 <div th:replace="fragments/common :: nav">nav</div>
@@ -40,7 +40,7 @@
         </tr>
         </tbody>
     </table>
-    <div th:replace="fragments/common :: pagination">nav</div>
+    <div th:replace="fragments/common :: pagination"></div>
 </div>
 </body>
 </html>

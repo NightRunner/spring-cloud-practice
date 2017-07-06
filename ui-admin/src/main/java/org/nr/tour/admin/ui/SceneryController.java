@@ -1,6 +1,6 @@
 package org.nr.tour.admin.ui;
 
-import org.nr.tour.rpc.hystrix.HystrixWrappedSceneryServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixSceneryServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.PageImplWrapper;
@@ -21,7 +21,7 @@ import java.util.List;
 public class SceneryController {
 
     @Autowired
-    HystrixWrappedSceneryServiceClient hystrixWrappedSceneryServiceClient;
+    HystrixSceneryServiceClient hystrixSceneryServiceClient;
 
     @Autowired
     JsonService jsonService;
@@ -31,7 +31,7 @@ public class SceneryController {
                        @RequestParam(value = "page", required = false, defaultValue = PageConstants.DEFAULT_PAGE_NUMBER) Integer page,
                        @RequestParam(value = "size", required = false, defaultValue = PageConstants.DEFAULT_PAGE_SIZE) Integer size,
                        @RequestParam(value = "sort", required = false) List<String> sort) {
-        final PageImplWrapper<Scenery> pageList = hystrixWrappedSceneryServiceClient.getPage(page, size, sort);
+        final PageImplWrapper<Scenery> pageList = hystrixSceneryServiceClient.getPage(page, size, sort);
         model.addAttribute("page", pageList);
         return "scenery/sceneryList";
     }
@@ -39,19 +39,19 @@ public class SceneryController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Scenery save(@ModelAttribute Scenery Scenery) {
-        return hystrixWrappedSceneryServiceClient.save(jsonService.toJson(Scenery));
+        return hystrixSceneryServiceClient.save(jsonService.toJson(Scenery));
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public Scenery get(@RequestParam("id") String id) {
-        return hystrixWrappedSceneryServiceClient.getById(id);
+        return hystrixSceneryServiceClient.getById(id);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public Scenery delete(@RequestParam(value = "id") String id) {
-        return hystrixWrappedSceneryServiceClient.deleteById(id);
+        return hystrixSceneryServiceClient.deleteById(id);
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
@@ -61,7 +61,7 @@ public class SceneryController {
         if (StringUtils.isEmpty(id)) {
             Scenery = new Scenery();
         } else {
-            Scenery = hystrixWrappedSceneryServiceClient.getById(id);
+            Scenery = hystrixSceneryServiceClient.getById(id);
         }
 
         model.addAttribute("entity", Scenery);

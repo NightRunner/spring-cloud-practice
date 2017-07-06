@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+<head th:fragment="head(title)">
+
+    <title th:text="${title}"></title>
+
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -10,8 +13,12 @@
     <link th:href="@{/static/js/plugins/messenger/css/messenger.css}" rel="stylesheet"/>
     <link th:href="@{/static/js/plugins/messenger/css/messenger-theme-block.css}" rel="stylesheet"/>
 
+    <!--<link th:href="@{/static/js/plugins/select2/3.4/select2.min.css}" rel="stylesheet"/>-->
+    <!--<script th:src="@{/static/js/plugins/select2/3.4/select2.min.js}"></script>-->
+
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script th:src="@{/static/js/crud.js}"></script>
     <script th:src="@{/static/js/menu.js}"></script>
     <script th:src="@{/static/js/util.js}"></script>
@@ -29,6 +36,11 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
+        $(document).ready(function () {
+//            $("select").select2({
+//            });
+        });
     </script>
 </head>
 <body>

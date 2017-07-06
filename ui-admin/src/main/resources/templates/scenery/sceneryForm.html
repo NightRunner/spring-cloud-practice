@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-<head th:replace="fragments/header :: head">
+<head th:replace="fragments/header :: head('')">
 </head>
 <body>
 <script type="text/javascript" th:src="@{/static/js/plugins/My97DatePicker/WdatePicker.js}"></script>
@@ -20,6 +20,7 @@
         <div th:replace="fragments/crud/input :: text-not-required('videoUrl','视频地址')"></div>
         <div th:replace="fragments/crud/input :: text-not-required('contactInformation','景点联系方式')"></div>
         <div th:replace="fragments/crud/input :: text-not-required('address','地址')"></div>
+        <div th:replace="fragments/crud/select :: dict-not-required-labeled('level','景区级别','sceneryLevel')"></div>
         <div th:replace="fragments/crud/editor :: have-label('briefDescription','简要描述')"></div>
         <div th:replace="fragments/crud/editor :: have-label('introduction','景点介绍')"></div>
         <ul class="nav nav-tabs" role="tablist">

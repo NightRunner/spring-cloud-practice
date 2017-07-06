@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-<head th:replace="fragments/header :: head">
+<head th:replace="fragments/header :: head('')">
 </head>
 <body>
 <script type="text/javascript" th:src="@{/static/js/plugins/My97DatePicker/WdatePicker.js}"></script>
 <script type="text/javascript" th:src="@{/static/js/plugins/ueditor/ueditor.config.js}"></script>
 <script type="text/javascript" th:src="@{/static/js/plugins/ueditor/ueditor.all.js}"></script>
-<script th:replace="fragments/crud/script :: validation"></script>
-<script th:replace="fragments/crud/script :: fetch(@{/line/get})"></script>
-<script th:replace="fragments/crud/script :: submit"></script>
+<script th:replace="fragments/crud/script :: all(@{/line})"></script>
 <div th:replace="fragments/common :: nav">nav</div>
 <div class="container">
     <h5>线路列表</h5>

@@ -14,7 +14,7 @@ import java.util.List;
  * @author chenhaiyang <690732060@qq.com>
  */
 @Service
-public class HystrixWrappedMemberServiceClient implements MemberServiceClient {
+public class HystrixMemberServiceClient implements MemberServiceClient {
 
     @Autowired
     private MemberServiceClient memberServiceClient;

@@ -4,8 +4,6 @@ import org.nr.tour.common.service.HotelSupportServiceDefinition;
 import org.nr.tour.constant.ServiceConstants;
 import org.springframework.cloud.netflix.feign.FeignClient;
 
-import java.util.List;
-
 /**
  * @author chenhaiyang <690732060@qq.com>
  */

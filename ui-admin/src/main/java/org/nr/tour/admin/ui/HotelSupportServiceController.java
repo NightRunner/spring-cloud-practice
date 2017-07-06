@@ -1,7 +1,7 @@
 package org.nr.tour.admin.ui;
 
-import org.nr.tour.rpc.hystrix.HystrixWrappedHotelSupportServiceClient;
-import org.nr.tour.rpc.hystrix.HystrixWrappedSupportServiceCategoryServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixHotelSupportServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixSupportServiceCategoryServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.domain.HotelSupportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +21,10 @@ import java.util.List;
 public class HotelSupportServiceController {
 
     @Autowired
-    HystrixWrappedHotelSupportServiceClient hystrixWrappedHotelSupportServiceClient;
+    HystrixHotelSupportServiceClient hystrixHotelSupportServiceClient;
 
     @Autowired
-    HystrixWrappedSupportServiceCategoryServiceClient hystrixWrappedSupportServiceCategoryServiceClient;
+    HystrixSupportServiceCategoryServiceClient hystrixSupportServiceCategoryServiceClient;
 
     @Autowired
     JsonService jsonService;
@@ -32,13 +32,13 @@ public class HotelSupportServiceController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public void save(@RequestParam("hotelId") String hotelId, @RequestParam("serviceIds") List<String> serviceIds) {
-        hystrixWrappedHotelSupportServiceClient.save(hotelId, serviceIds);
+        hystrixHotelSupportServiceClient.save(hotelId, serviceIds);
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public List<HotelSupportService> get(@RequestParam("hotelId") String hotelId) {
-        return hystrixWrappedHotelSupportServiceClient.getById(hotelId);
+        return hystrixHotelSupportServiceClient.getById(hotelId);
     }
 
 }

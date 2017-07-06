@@ -14,7 +14,7 @@ import java.util.List;
  * @author chenhaiyang <690732060@qq.com>
  */
 @Service
-public class HystrixWrappedSceneryServiceClient implements SceneryServiceClient {
+public class HystrixSceneryServiceClient implements SceneryServiceClient {
 
     @Autowired
     private SceneryServiceClient sceneryServiceClient;

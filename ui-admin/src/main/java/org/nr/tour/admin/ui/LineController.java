@@ -1,6 +1,6 @@
 package org.nr.tour.admin.ui;
 
-import org.nr.tour.rpc.hystrix.HystrixWrappedLineServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixLineServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.Line;
@@ -21,7 +21,7 @@ import java.util.List;
 public class LineController {
 
     @Autowired
-    HystrixWrappedLineServiceClient hystrixWrappedLineServiceClient;
+    HystrixLineServiceClient hystrixLineServiceClient;
 
     @Autowired
     JsonService jsonService;
@@ -31,7 +31,7 @@ public class LineController {
             @RequestParam(value = "page", required = false, defaultValue = PageConstants.DEFAULT_PAGE_NUMBER) Integer page,
             @RequestParam(value = "size", required = false, defaultValue = PageConstants.DEFAULT_PAGE_SIZE) Integer size,
             @RequestParam(value = "sort", required = false) List<String> sort, Model model) {
-        final PageImplWrapper<Line> pageList = hystrixWrappedLineServiceClient.getPage(page, size, sort);
+        final PageImplWrapper<Line> pageList = hystrixLineServiceClient.getPage(page, size, sort);
         model.addAttribute("page", pageList);
         return "line/lineList";
     }
@@ -39,19 +39,19 @@ public class LineController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Line save(@ModelAttribute Line Line) {
-        return hystrixWrappedLineServiceClient.save(jsonService.toJson(Line));
+        return hystrixLineServiceClient.save(jsonService.toJson(Line));
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public Line get(@RequestParam("id") String id) {
-        return hystrixWrappedLineServiceClient.getById(id);
+        return hystrixLineServiceClient.getById(id);
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public Line delete(@RequestParam(value = "id") String id) {
-        return hystrixWrappedLineServiceClient.deleteById(id);
+        return hystrixLineServiceClient.deleteById(id);
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
@@ -61,7 +61,7 @@ public class LineController {
         if (StringUtils.isEmpty(id)) {
             Line = new Line();
         } else {
-            Line = hystrixWrappedLineServiceClient.getById(id);
+            Line = hystrixLineServiceClient.getById(id);
         }
 
         model.addAttribute("entity", Line);

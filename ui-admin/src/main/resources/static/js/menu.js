@@ -30,6 +30,7 @@ var menu = [
     {url: 'line/list', name: '线路列表'},
     {url: 'scenery/list', name: '景点列表'},
     {name: '会员列表', url: 'member/list'},
+    {name: '签证列表', url: 'visa/list'},
     {name: '数据字典', url: 'dict/list'},
     {
         name: '配置',

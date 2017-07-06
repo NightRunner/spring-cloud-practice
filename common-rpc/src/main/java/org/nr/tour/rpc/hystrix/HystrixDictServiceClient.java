@@ -14,7 +14,7 @@ import java.util.List;
  * @author chenhaiyang <690732060@qq.com>
  */
 @Service
-public class HystrixWrappedDictServiceClient implements DictServiceClient {
+public class HystrixDictServiceClient implements DictServiceClient {
 
     @Autowired
     private DictServiceClient dictServiceClient;

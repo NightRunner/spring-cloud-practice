@@ -14,7 +14,7 @@ import java.util.List;
  * @author chenhaiyang <690732060@qq.com>
  */
 @Service
-public class HystrixWrappedHotelServiceClient implements HotelServiceClient {
+public class HystrixHotelServiceClient implements HotelServiceClient {
 
     @Autowired
     private HotelServiceClient hotelServiceClient;

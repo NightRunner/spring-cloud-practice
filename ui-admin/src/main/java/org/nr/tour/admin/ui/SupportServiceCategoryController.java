@@ -1,7 +1,7 @@
 package org.nr.tour.admin.ui;
 
 import com.google.common.collect.Lists;
-import org.nr.tour.rpc.hystrix.HystrixWrappedSupportServiceCategoryServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixSupportServiceCategoryServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.PageImplWrapper;
@@ -22,7 +22,7 @@ import java.util.List;
 public class SupportServiceCategoryController {
 
     @Autowired
-    HystrixWrappedSupportServiceCategoryServiceClient hystrixWrappedSupportServiceCategoryServiceClient;
+    HystrixSupportServiceCategoryServiceClient hystrixSupportServiceCategoryServiceClient;
 
     @Autowired
     JsonService jsonService;
@@ -32,7 +32,7 @@ public class SupportServiceCategoryController {
                        @RequestParam(value = "page", required = false, defaultValue = PageConstants.DEFAULT_PAGE_NUMBER) Integer page,
                        @RequestParam(value = "size", required = false, defaultValue = PageConstants.DEFAULT_PAGE_SIZE) Integer size,
                        @RequestParam(value = "sort", required = false) List<String> sort) {
-        final PageImplWrapper<SupportServiceCategory> pageList = hystrixWrappedSupportServiceCategoryServiceClient.getPage(page, size, sort);
+        final PageImplWrapper<SupportServiceCategory> pageList = hystrixSupportServiceCategoryServiceClient.getPage(page, size, sort);
         model.addAttribute("page", pageList);
         return "hotel/service/category/supportServiceCategoryList";
     }
@@ -40,25 +40,25 @@ public class SupportServiceCategoryController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public SupportServiceCategory save(@ModelAttribute SupportServiceCategory supportServiceCategory) {
-        return hystrixWrappedSupportServiceCategoryServiceClient.save(jsonService.toJson(supportServiceCategory));
+        return hystrixSupportServiceCategoryServiceClient.save(jsonService.toJson(supportServiceCategory));
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public SupportServiceCategory get(@RequestParam("id") String id) {
-        return hystrixWrappedSupportServiceCategoryServiceClient.getById(id);
+        return hystrixSupportServiceCategoryServiceClient.getById(id);
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
     public List<SupportServiceCategory> get() {
-        return hystrixWrappedSupportServiceCategoryServiceClient.getPage(0, Integer.MAX_VALUE, Lists.newArrayList("sort,asc")).getContent();
+        return hystrixSupportServiceCategoryServiceClient.getPage(0, Integer.MAX_VALUE, Lists.newArrayList("sort,asc")).getContent();
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public SupportServiceCategory delete(@RequestParam(value = "id") String id) {
-        return hystrixWrappedSupportServiceCategoryServiceClient.deleteById(id);
+        return hystrixSupportServiceCategoryServiceClient.deleteById(id);
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
@@ -68,7 +68,7 @@ public class SupportServiceCategoryController {
         if (StringUtils.isEmpty(id)) {
             supportServiceCategory = new SupportServiceCategory();
         } else {
-            supportServiceCategory = hystrixWrappedSupportServiceCategoryServiceClient.getById(id);
+            supportServiceCategory = hystrixSupportServiceCategoryServiceClient.getById(id);
         }
 
         model.addAttribute("entity", supportServiceCategory);

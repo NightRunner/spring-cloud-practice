@@ -1,12 +1,12 @@
 package org.nr.tour.admin.ui;
 
 import com.google.common.collect.Lists;
-import org.nr.tour.rpc.hystrix.HystrixWrappedSupportServiceCategoryServiceClient;
-import org.nr.tour.rpc.hystrix.HystrixWrappedSupportServiceServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.PageImplWrapper;
 import org.nr.tour.domain.SupportService;
+import org.nr.tour.rpc.hystrix.HystrixSupportServiceCategoryServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixSupportServiceServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +23,10 @@ import java.util.List;
 public class SupportServiceController {
 
     @Autowired
-    HystrixWrappedSupportServiceServiceClient hystrixWrappedSupportServiceServiceClient;
+    HystrixSupportServiceServiceClient hystrixSupportServiceServiceClient;
 
     @Autowired
-    HystrixWrappedSupportServiceCategoryServiceClient hystrixWrappedSupportServiceCategoryServiceClient;
+    HystrixSupportServiceCategoryServiceClient hystrixSupportServiceCategoryServiceClient;
 
     @Autowired
     JsonService jsonService;
@@ -36,7 +36,7 @@ public class SupportServiceController {
                        @RequestParam(value = "page", required = false, defaultValue = PageConstants.DEFAULT_PAGE_NUMBER) Integer page,
                        @RequestParam(value = "size", required = false, defaultValue = PageConstants.DEFAULT_PAGE_SIZE) Integer size,
                        @RequestParam(value = "sort", required = false) List<String> sort) {
-        final PageImplWrapper<SupportService> pageList = hystrixWrappedSupportServiceServiceClient.getPage(page, size, sort);
+        final PageImplWrapper<SupportService> pageList = hystrixSupportServiceServiceClient.getPage(page, size, sort);
         model.addAttribute("page", pageList);
         return "hotel/service/supportServiceList";
     }
@@ -44,25 +44,25 @@ public class SupportServiceController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public SupportService save(@ModelAttribute SupportService SupportService) {
-        return hystrixWrappedSupportServiceServiceClient.save(jsonService.toJson(SupportService));
+        return hystrixSupportServiceServiceClient.save(jsonService.toJson(SupportService));
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public SupportService get(@RequestParam("id") String id) {
-        return hystrixWrappedSupportServiceServiceClient.getById(id);
+        return hystrixSupportServiceServiceClient.getById(id);
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
     public List<SupportService> getAll() {
-        return hystrixWrappedSupportServiceServiceClient.getPage(0, Integer.MAX_VALUE, Lists.newArrayList("sort,asc")).getContent();
+        return hystrixSupportServiceServiceClient.getPage(0, Integer.MAX_VALUE, Lists.newArrayList("sort,asc")).getContent();
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public SupportService delete(@RequestParam(value = "id") String id) {
-        return hystrixWrappedSupportServiceServiceClient.deleteById(id);
+        return hystrixSupportServiceServiceClient.deleteById(id);
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
@@ -72,11 +72,11 @@ public class SupportServiceController {
         if (StringUtils.isEmpty(id)) {
             supportService = new SupportService();
         } else {
-            supportService = hystrixWrappedSupportServiceServiceClient.getById(id);
+            supportService = hystrixSupportServiceServiceClient.getById(id);
         }
 
         model.addAttribute("categories",
-                hystrixWrappedSupportServiceCategoryServiceClient.getPage(0, Integer.MAX_VALUE, null).getContent());
+                hystrixSupportServiceCategoryServiceClient.getPage(0, Integer.MAX_VALUE, null).getContent());
         model.addAttribute("entity", supportService);
 
         return "hotel/service/supportServiceForm";
