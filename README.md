@@ -47,7 +47,6 @@ windows项目运行步骤:
 mvn clean package
 
 start /b java -Xmx256m -jar platform-eureka-server/target/platform-eureka-server-1.0.0-SNAPSHOT.jar >.\log\eureka-server.log &
-start /b java -Xmx256m -jar platform-zuul/target/platform-zuul-1.0.0-SNAPSHOT.jar  >\log\zuul.log &
 start /b java -Xmx256m -jar platform-zipkin-server/target/platform-zipkin-server-1.0.0-SNAPSHOT.jar >.\log\zipkin-server.log &
 start /b java -Xmx256m -jar platform-admin-dashboard/target/platform-admin-dashboard-1.0.0-SNAPSHOT.jar >.\log\admin-dashboard.log &
 start /b java -Xmx256m -jar platform-config-server/target/platform-config-server-1.0.0-SNAPSHOT.jar >.\log\config-server.log &
@@ -71,7 +70,6 @@ linux
 mvn clean package
 
 java -Xmx256m -jar platform-eureka-server\target\platform-eureka-server-1.0.0-SNAPSHOT.jar >./log/eureka-server.log &
-java -Xmx256m -jar platform-zuul\target\platform-zuul-1.0.0-SNAPSHOT.jar  >zuul.log &
 java -Xmx256m -jar platform-zipkin-server\target\platform-zipkin-server-1.0.0-SNAPSHOT.jar >./log/zipkin-server.log &
 java -Xmx256m -jar platform-admin-dashboard\target\platform-admin-dashboard-1.0.0-SNAPSHOT.jar >./log/admin-dashboard.log &
 java -Xmx256m -jar platform-config-server\target\platform-config-server-1.0.0-SNAPSHOT.jar >./log/config-server.log &
