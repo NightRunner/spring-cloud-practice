@@ -1,5 +1,20 @@
 #Spring-Cloud-Practice
 
+
+##作者想说的
+
+    本项目是我对于Spring-Cloud 的一个尝试，围绕一个B2C的旅游项目展开，包括后台管理、接口两大部分，尽量覆盖到各种场景。
+
+    另外，本项目中包含了一些thymeleaf fragment的用法，小小安利一下:
+
+[点击跳转到代码处](http://git.oschina.net/nightrunner/spring-cloud-practice/tree/master/ui-admin/src/main/resources/templates/fragments)
+
+    最后，我的联系方式690732060@qq.com，欢迎骚扰。
+
+    欢迎评论&拍砖
+  
+##项目启动步骤
+
 启动前的准备:
 1.安装并运行rabbit-mq
 2.安装jdk8
