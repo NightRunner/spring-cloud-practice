@@ -6,7 +6,7 @@
 3.安装jdk8
 4.安装maven 3.x (在项目根目录运行命令: `mvn clean package`)
 
-linux项目运行步骤:
+windows项目运行步骤:
 ```
 mvn clean package
 
@@ -28,7 +28,7 @@ start /b java -Xmx256m -jar service-verify-code\target\verify-code-service-1.0.0
 start /b java -Xmx256m -jar service-sms\target\sms-service-1.0.0-SNAPSHOT.jar  >sms-service.log &
 ```
 
-windows
+linux
 ```
 mvn clean package
 
