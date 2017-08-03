@@ -11,13 +11,18 @@
                th:classappend="${isRequired?'required':''}"
                th:placeholder="${label}"/>
     </div>
-    <script th:replace="fragments/crud/valid :: default(${name},${label})"></script>
+    <div th:if="${isRequired == true}" th:remove="tag">
+        <script th:replace="fragments/crud/valid :: default(${name},${label})"></script>
+    </div>
 </div>
 <div th:fragment="input-bridge(type,name,feature)"
      th:replace="fragments/crud/new-input :: input(${type},${name},${#strings.contains(feature,'[')?(#strings.substring(feature,#strings.indexOf(feature,'[')+1,#strings.indexOf(feature,']'))):null},${!#strings.contains(feature,'![')})">
 </div>
 <div th:fragment="text(name,feature)"
      th:replace="fragments/crud/new-input :: input-bridge('text',${name},${feature})">
+</div>
+<div th:fragment="file(name,feature)"
+     th:replace="fragments/crud/new-input :: input-bridge('file',${name},${feature})">
 </div>
 <div th:fragment="number(name,feature)"
      th:replace="fragments/crud/new-input :: input-bridge('number',${name},${feature})">

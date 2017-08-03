@@ -1,6 +1,9 @@
 package org.nr.tour.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * @author chenhaiyang <690732060@qq.com>

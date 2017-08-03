@@ -30,6 +30,8 @@
     });
 </script>
 <script th:fragment="submit">
+    var afterSaveFunctions = [];
+
     $(document).ready(function () {
 
         $("#form").validate({
@@ -39,6 +41,13 @@
 
                 $(form).ajaxSubmit({
                     success: function (data) {
+
+                        console.log(data);
+
+                        for (var i = 0; lt(i, afterSaveFunctions.length); i++) {
+                            afterSaveFunctions[i](data);
+                        }
+
                         afterAjaxSave();
                     }
                 });

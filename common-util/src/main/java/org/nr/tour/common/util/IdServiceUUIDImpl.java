@@ -12,6 +12,6 @@ public class IdServiceUUIDImpl implements IdService {
 
     @Override
     public String newOne() {
-        return UUID.randomUUID().toString();
+        return UUID.randomUUID().toString().replace("-", "");
     }
 }

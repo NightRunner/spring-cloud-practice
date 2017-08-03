@@ -11,6 +11,14 @@
         </select>
     </div>
 </div>
+<div th:fragment="enum-prototype(name,label,options,isRequired)" class="form-group">
+    <label th:replace="fragments/crud/label :: default(${name},${label},${isRequired})"></label>
+    <div class="col-sm-6">
+        <select th:id="${name}" th:name="${name}" class="form-control" th:classappend="${isRequired?'required':''}">
+            <option th:each="type:${options}" th:text="${type.name}" th:value="${type.id}"></option>
+        </select>
+    </div>
+</div>
 <div th:fragment="object-prototype(name,label,options,isRequired)" class="form-group">
     <label th:replace="fragments/crud/label :: default(${name},${label},${isRequired})"></label>
     <div class="col-sm-6">
@@ -41,9 +49,11 @@
         </script>
     </div>
 </div>
-
 <div th:fragment="default-bridge(name,options,feature)"
      th:replace="fragments/crud/new-select :: prototype(${name},${#strings.contains(feature,'[')?(#strings.substring(feature,#strings.indexOf(feature,'[')+1,#strings.indexOf(feature,']'))):null},${options},${!#strings.contains(feature,'![')})">
+</div>
+<div th:fragment="enum-bridge(name,options,feature)"
+     th:replace="fragments/crud/new-select :: enum-prototype(${name},${#strings.contains(feature,'[')?(#strings.substring(feature,#strings.indexOf(feature,'[')+1,#strings.indexOf(feature,']'))):null},${options},${!#strings.contains(feature,'![')})">
 </div>
 <div th:fragment="dict-bridge(name,options,feature)"
      th:replace="fragments/crud/new-select :: dict-prototype(${name},${#strings.contains(feature,'[')?(#strings.substring(feature,#strings.indexOf(feature,'[')+1,#strings.indexOf(feature,']'))):null},${options},${!#strings.contains(feature,'![')})">
@@ -59,6 +69,9 @@
 </div>
 <div th:fragment="dict(name,dictType,feature)"
      th:replace="fragments/crud/new-select :: dict-bridge(${name},${dictType},${feature})">
+</div>
+<div th:fragment="enum(name,options,feature)"
+     th:replace="fragments/crud/new-select :: enum-bridge(${name},${options},${feature})">
 </div>
 </body>
 </html>

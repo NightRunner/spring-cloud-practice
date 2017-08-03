@@ -14,6 +14,12 @@ public class Scenery extends IDEntity {
     @Column(name = "name", length = 255)
     private String name;
 
+    @Column(name = "opening_time", length = 255)
+    private String openingTime;
+
+    @Column(name = "city", length = 255)
+    private String city;
+
     @Column(name = "pinyin", length = 255)
     private String pinyin;
 
@@ -28,6 +34,9 @@ public class Scenery extends IDEntity {
 
     @Column(name = "address", length = 255)
     private String address;
+
+    @Column(name = "level", length = 64)
+    private String level;
 
     @Column(name = "video_url", length = 255)
     private String videoUrl;
@@ -58,6 +67,30 @@ public class Scenery extends IDEntity {
 
     @Column(name = "sort")
     private Integer sort;
+
+    public String getOpeningTime() {
+        return openingTime;
+    }
+
+    public void setOpeningTime(String openingTime) {
+        this.openingTime = openingTime;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
 
     public String getName() {
         return name;

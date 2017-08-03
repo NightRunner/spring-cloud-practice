@@ -16,6 +16,12 @@ public class IDAndAuditEntity extends IDEntity {
     @Column(name = "update_time")
     private Date updateTime;
 
+    @Column(name = "create_by")
+    private String createBy;
+
+    @Column(name = "update_by")
+    private String updateBy;
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -30,5 +36,21 @@ public class IDAndAuditEntity extends IDEntity {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
     }
 }

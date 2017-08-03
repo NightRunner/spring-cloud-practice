@@ -1,9 +1,8 @@
 package org.nr.tour.rpc.hystrix;
 
-import com.google.common.collect.Lists;
-import org.nr.tour.rpc.SceneryServiceClient;
 import org.nr.tour.domain.PageImplWrapper;
 import org.nr.tour.domain.Scenery;
+import org.nr.tour.rpc.SceneryServiceClient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +17,26 @@ public class HystrixSceneryServiceClient implements SceneryServiceClient {
 
     @Autowired
     private SceneryServiceClient sceneryServiceClient;
+
+    @Override
+    @HystrixCommand(fallbackMethod = "searchListFallBackCall")
+    public PageImplWrapper<Scenery> search(String city, String keyword, Integer page, Integer size) {
+        return sceneryServiceClient.search(city, keyword, page, size);
+    }
+
+    public PageImplWrapper<Scenery> searchListFallBackCall(String city, String keyword, Integer page, Integer size) {
+        return null;
+    }
+
+    @Override
+    @HystrixCommand(fallbackMethod = "getRecommendListFallBackCall")
+    public List<Scenery> getRecommendList() {
+        return sceneryServiceClient.getRecommendList();
+    }
+
+    public List<Scenery> getRecommendListFallBackCall() {
+        return null;
+    }
 
     @Override
     @HystrixCommand(fallbackMethod = "deleteFallBackCall")
@@ -40,7 +59,7 @@ public class HystrixSceneryServiceClient implements SceneryServiceClient {
     @Override
     @HystrixCommand(fallbackMethod = "getPageFallBackCall")
     public PageImplWrapper<Scenery> getPage(Integer page, Integer size, List<String> sort) {
-        return sceneryServiceClient.getPage(page, size,sort);
+        return sceneryServiceClient.getPage(page, size, sort);
     }
 
     @Override
@@ -50,29 +69,23 @@ public class HystrixSceneryServiceClient implements SceneryServiceClient {
     }
 
     public Scenery deleteFallBackCall(String id) {
-        Scenery scenery = new Scenery();
-        scenery.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return scenery;
+        return null;
     }
 
     public Scenery getByIdFallBackCall(String id) {
-        Scenery scenery = new Scenery();
-        scenery.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return scenery;
+        return null;
     }
 
     public Scenery saveFallBackCall(String name) {
-        Scenery scenery = new Scenery();
-        scenery.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + name);
-        return scenery;
+        return null;
     }
 
     public PageImplWrapper<Scenery> getPageFallBackCall(Integer page, Integer size, List<String> sort) {
-        return new PageImplWrapper<Scenery>(Lists.<Scenery>newArrayList());
+        return null;
     }
 
     public List<Scenery> getListFallBackCall() {
-        return Lists.<Scenery>newArrayList();
+        return null;
     }
 }
 

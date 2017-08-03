@@ -1,9 +1,9 @@
 package org.nr.tour.rpc.hystrix;
 
 import com.google.common.collect.Lists;
-import org.nr.tour.rpc.SupportServiceServiceClient;
 import org.nr.tour.domain.PageImplWrapper;
 import org.nr.tour.domain.SupportService;
+import org.nr.tour.rpc.SupportServiceServiceClient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,25 +51,19 @@ public class HystrixSupportServiceServiceClient implements SupportServiceService
 
 
     public SupportService deleteFallBackCall(String id) {
-        SupportService supportService = new SupportService();
-        supportService.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return supportService;
+        return null;
     }
 
     public SupportService getByIdFallBackCall(String id) {
-        SupportService supportService = new SupportService();
-        supportService.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return supportService;
+        return null;
     }
 
     public SupportService saveFallBackCall(String name) {
-        SupportService supportService = new SupportService();
-        supportService.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + name);
-        return supportService;
+        return null;
     }
 
     public PageImplWrapper<SupportService> getPageFallBackCall(Integer page, Integer size, List<String> sort) {
-        return new PageImplWrapper<SupportService>(Lists.<SupportService>newArrayList());
+        return null;
     }
 
     public List<SupportService> getListFallBackCall() {

@@ -33,7 +33,7 @@ public class SMSServiceApplication {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("org.nr"))
+                .apis(RequestHandlerSelectors.basePackage("com.mhwx"))
                 .paths(PathSelectors.any())
                 .build();
     }

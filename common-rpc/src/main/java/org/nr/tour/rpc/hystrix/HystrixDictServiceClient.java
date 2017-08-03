@@ -61,29 +61,23 @@ public class HystrixDictServiceClient implements DictServiceClient {
     }
 
     public Dict deleteFallBackCall(String id) {
-        Dict hotel = new Dict();
-        hotel.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return hotel;
+        return null;
     }
 
     public Dict getByIdFallBackCall(String id) {
-        Dict hotel = new Dict();
-        hotel.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return hotel;
+        return null;
     }
 
     public Dict saveFallBackCall(String name) {
-        Dict hotel = new Dict();
-        hotel.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + name);
-        return hotel;
+        return null;
     }
 
     public PageImplWrapper<Dict> getPageFallBackCall(Integer page, Integer size, List<String> sort) {
-        return new PageImplWrapper<Dict>(Lists.<Dict>newArrayList());
+        return null;
     }
 
     public List<Dict> getListFallBackCall() {
-        return Lists.newArrayList();
+        return null;
     }
 }
 

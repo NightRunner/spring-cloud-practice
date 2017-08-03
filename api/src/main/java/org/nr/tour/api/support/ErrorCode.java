@@ -7,7 +7,17 @@ public enum ErrorCode {
     /**
      * 错误的登陆验证码
      */
-    INVALID_LOGIN_VERIFY_CODE(10001, 400),
+    INVALID_VERIFY_CODE(10001, 400),
+
+    /**
+     * 登陆已经过期
+     */
+    TOKEN_EXPIRED(10002, 400),
+
+    /**
+     * 错误的用户名密码
+     */
+    INVALID_LOGIN_USERNAME_OR_PASSWORD(10002, 400),
 
     COMMON(-1, 200);
 

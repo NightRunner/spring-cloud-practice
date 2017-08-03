@@ -1,9 +1,8 @@
 package org.nr.tour.rpc.hystrix;
 
-import com.google.common.collect.Lists;
-import org.nr.tour.rpc.SupportServiceCategoryServiceClient;
 import org.nr.tour.domain.PageImplWrapper;
 import org.nr.tour.domain.SupportServiceCategory;
+import org.nr.tour.rpc.SupportServiceCategoryServiceClient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,29 +49,23 @@ public class HystrixSupportServiceCategoryServiceClient implements SupportServic
     }
 
     public SupportServiceCategory deleteFallBackCall(String id) {
-        SupportServiceCategory supportServiceCategory = new SupportServiceCategory();
-        supportServiceCategory.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return supportServiceCategory;
+        return null;
     }
 
     public SupportServiceCategory getByIdFallBackCall(String id) {
-        SupportServiceCategory supportServiceCategory = new SupportServiceCategory();
-        supportServiceCategory.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return supportServiceCategory;
+        return null;
     }
 
     public SupportServiceCategory saveFallBackCall(String name) {
-        SupportServiceCategory supportServiceCategory = new SupportServiceCategory();
-        supportServiceCategory.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + name);
-        return supportServiceCategory;
+        return null;
     }
 
     public PageImplWrapper<SupportServiceCategory> getPageFallBackCall(Integer page, Integer size, List<String> sort) {
-        return new PageImplWrapper<SupportServiceCategory>(Lists.<SupportServiceCategory>newArrayList());
+        return null;
     }
 
     public List<SupportServiceCategory> getListFallBackCall() {
-        return Lists.<SupportServiceCategory>newArrayList();
+        return null;
     }
 }
 

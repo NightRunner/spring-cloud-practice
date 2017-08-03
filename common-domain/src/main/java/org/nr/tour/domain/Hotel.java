@@ -15,72 +15,111 @@ import java.util.Date;
 @Table(name = "hotel")
 public class Hotel extends IDEntity {
 
+    /**
+     * 名称
+     */
     @Column(name = "name", length = 255)
     private String name;
 
+    /**
+     * 拼音
+     */
     @Column(name = "pinyin", length = 255)
     private String pinyin;
 
+    /**
+     * 简称
+     */
     @Column(name = "subtitle", length = 255)
     private String subtitle;
 
+    /**
+     * 联系信息
+     */
     @Column(name = "contact_information", length = 255)
     private String contactInformation;
 
+    /**
+     * 开业时间
+     */
     @Column(name = "opening_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     private Date openingTime;
 
+    /**
+     * 装修时间
+     */
     @Column(name = "decoration_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     private Date decorationTime;
-
+    /**
+     * 起步价
+     */
+    @Column(name = "starting_price")
+    private Double startingPrice;
+    /**
+     * 门市价
+     */
+    @Column(name = "market_price")
+    private Double marketPrice;
     @Column(name = "address", length = 255)
     private String address;
-
     @Column(name = "type", length = 64)
     private String type;
-
     @Column(name = "level", length = 64)
     private String level;
-
+    @Column(name = "brand", length = 64)
+    private String brand;
     @Column(name = "brief_description", length = 255)
     private String briefDescription;
-
     @Column(name = "introduction", length = 1024)
     private String introduction;
-
     @Column(name = "traffic_guide", length = 1024)
     private String trafficGuide;
-
     @Column(name = "surrounding_environment", length = 1024)
     private String surroundingEnvironment;
-
     @Column(name = "position_distance", length = 1024)
     private String positionDistance;
-
     @Column(name = "special_tips", length = 1024)
     private String specialTips;
-
     @Column(name = "append_service", length = 1024)
     private String appendService;
-
     @Column(name = "status")
     private Integer status;
-
     @Column(name = "hide")
     private Boolean hide;
-
     @Column(name = "recommend")
     private Boolean recommend;
-
     @Column(name = "sort")
     private Integer sort;
-
     @Column(name = "video_url", length = 255)
     private String videoUrl;
+
+    public Double getStartingPrice() {
+        return startingPrice;
+    }
+
+    public void setStartingPrice(Double startingPrice) {
+        this.startingPrice = startingPrice;
+    }
+
+    public Double getMarketPrice() {
+        return marketPrice;
+    }
+
+    public void setMarketPrice(Double marketPrice) {
+        this.marketPrice = marketPrice;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
     public String getType() {
         return type;

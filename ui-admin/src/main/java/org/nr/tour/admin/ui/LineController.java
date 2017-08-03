@@ -1,10 +1,12 @@
 package org.nr.tour.admin.ui;
 
-import org.nr.tour.rpc.hystrix.HystrixLineServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.Line;
+import org.nr.tour.domain.LineOrderProcessTypeEnum;
 import org.nr.tour.domain.PageImplWrapper;
+import org.nr.tour.rpc.hystrix.HystrixDictManyToManyServiceClient;
+import org.nr.tour.rpc.hystrix.HystrixLineServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ public class LineController {
 
     @Autowired
     HystrixLineServiceClient hystrixLineServiceClient;
+
+    @Autowired
+    HystrixDictManyToManyServiceClient hystrixDictManyToManyServiceClient;
 
     @Autowired
     JsonService jsonService;
@@ -50,21 +55,22 @@ public class LineController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public Line delete(@RequestParam(value = "id") String id) {
+    public Boolean delete(@RequestParam(value = "id") String id) {
         return hystrixLineServiceClient.deleteById(id);
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String form(Model model, @RequestParam(value = "id", required = false) String id) {
 
-        Line Line = null;
+        Line line = null;
         if (StringUtils.isEmpty(id)) {
-            Line = new Line();
+            line = new Line();
         } else {
-            Line = hystrixLineServiceClient.getById(id);
+            line = hystrixLineServiceClient.getById(id);
         }
 
-        model.addAttribute("entity", Line);
+        model.addAttribute("entity", line);
+        model.addAttribute("orderProcessTypes", LineOrderProcessTypeEnum.values());
 
         return "line/lineForm";
     }

@@ -15,7 +15,7 @@ public class PageImplWrapper<T> extends PageImpl {
     private int size;
     private boolean isFirst;
     private Sort sort;
-    private List content;
+    private List<T> content;
     private int totalPages;
 
     public PageImplWrapper(List<T> content, Pageable pageable, long total) {
@@ -41,13 +41,13 @@ public class PageImplWrapper<T> extends PageImpl {
         this.totalPages = super.getTotalPages();
     }
 
-    public void setTotalPages(int totalPages) {
-        this.totalPages = totalPages;
-    }
-
     @Override
     public int getTotalPages() {
         return this.totalPages;
+    }
+
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
     }
 
     @Override
@@ -87,11 +87,11 @@ public class PageImplWrapper<T> extends PageImpl {
     }
 
     @Override
-    public List getContent() {
+    public List<T> getContent() {
         return content;
     }
 
-    public void setContent(List content) {
+    public void setContent(List<T> content) {
         this.content = content;
     }
 

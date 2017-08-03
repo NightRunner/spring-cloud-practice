@@ -5,6 +5,7 @@ import org.nr.tour.common.util.JsonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+@Configuration
 @ControllerAdvice(annotations = {RestController.class})
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -44,7 +46,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(MediaType.APPLICATION_JSON_UTF8_VALUE));
         APIResult result = new APIResult(-1,
-                HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
+                ex.getMessage());
         return new ResponseEntity<APIResult>(result, headers, HttpStatus.OK);
     }
 

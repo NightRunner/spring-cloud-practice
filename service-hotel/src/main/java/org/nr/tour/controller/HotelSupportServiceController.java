@@ -39,7 +39,7 @@ public class HotelSupportServiceController implements HotelSupportServiceDefinit
 
         hotelSupportServiceRepository.delete(hotelSupportServiceRepository.findByHotelId(hotelId));
 
-        Hotel hotel = hotelRepository.getOne(hotelId);
+        Hotel hotel = hotelRepository.findOne(hotelId);
         for (String serviceId : serviceIds) {
             HotelSupportService hotelSupportService = new HotelSupportService();
             hotelSupportService.setId(idService.newOne());

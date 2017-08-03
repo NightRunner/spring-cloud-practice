@@ -1,11 +1,11 @@
 package org.nr.tour.admin.ui;
 
 import com.google.common.collect.Lists;
-import org.nr.tour.rpc.hystrix.HystrixSupportServiceCategoryServiceClient;
 import org.nr.tour.common.util.JsonService;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.PageImplWrapper;
 import org.nr.tour.domain.SupportServiceCategory;
+import org.nr.tour.rpc.hystrix.HystrixSupportServiceCategoryServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

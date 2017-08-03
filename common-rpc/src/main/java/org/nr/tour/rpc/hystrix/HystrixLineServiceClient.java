@@ -1,9 +1,8 @@
 package org.nr.tour.rpc.hystrix;
 
-import com.google.common.collect.Lists;
-import org.nr.tour.rpc.LineServiceClient;
 import org.nr.tour.domain.Line;
 import org.nr.tour.domain.PageImplWrapper;
+import org.nr.tour.rpc.LineServiceClient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,28 @@ public class HystrixLineServiceClient implements LineServiceClient {
     private LineServiceClient lineServiceClient;
 
     @Override
+    @HystrixCommand(fallbackMethod = "searchFallBackCall")
+    public PageImplWrapper<Line> search(String city, String keyword, Integer page, Integer size) {
+        return lineServiceClient.search(city, keyword, page, size);
+    }
+
+    public PageImplWrapper<Line> searchFallBackCall(String city, String keyword, Integer page, Integer size) {
+        return null;
+    }
+
+    @Override
+    @HystrixCommand(fallbackMethod = "getRecommendListFallBackCall")
+    public List<Line> getRecommendList() {
+        return lineServiceClient.getRecommendList();
+    }
+
+    public List<Line> getRecommendListFallBackCall() {
+        return null;
+    }
+
+    @Override
     @HystrixCommand(fallbackMethod = "deleteByIdFallBackCall")
-    public Line deleteById(String id) {
+    public Boolean deleteById(String id) {
         return lineServiceClient.deleteById(id);
     }
 
@@ -49,30 +68,24 @@ public class HystrixLineServiceClient implements LineServiceClient {
         return lineServiceClient.getList();
     }
 
-    public Line deleteByIdFallBackCall(String id) {
-        Line line = new Line();
-        line.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return line;
+    public Boolean deleteByIdFallBackCall(String id) {
+        return Boolean.FALSE;
     }
 
     public Line getByIdFallBackCall(String id) {
-        Line line = new Line();
-        line.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + id);
-        return line;
+        return null;
     }
 
     public Line saveFallBackCall(String name) {
-        Line line = new Line();
-        line.setName("FAILED HOTEL SERVICE CALL! - FALLING BACK" + name);
-        return line;
+        return null;
     }
 
     public PageImplWrapper<Line> getPageFallBackCall(Integer page, Integer size, List<String> sort) {
-        return new PageImplWrapper<Line>(Lists.<Line>newArrayList());
+        return null;
     }
 
     public List<Line> getListFallBackCall() {
-        return Lists.<Line>newArrayList();
+        return null;
     }
 }
 

@@ -27,6 +27,12 @@ public class SMSLog extends IDEntity {
     @Column(name = "send_time")
     private Date sendTime;
 
+    @Column(name = "stat")
+    private Integer stat;//状态
+
+    @Column(name = "return_code")
+    private String returnCode;//返回码
+
     public Integer getType() {
         return type;
     }
@@ -65,5 +71,21 @@ public class SMSLog extends IDEntity {
 
     public void setOriginResult(String originResult) {
         this.originResult = originResult;
+    }
+
+    public Integer getStat() {
+        return stat;
+    }
+
+    public void setStat(Integer stat) {
+        this.stat = stat;
+    }
+
+    public String getReturnCode() {
+        return returnCode;
+    }
+
+    public void setReturnCode(String returnCode) {
+        this.returnCode = returnCode;
     }
 }

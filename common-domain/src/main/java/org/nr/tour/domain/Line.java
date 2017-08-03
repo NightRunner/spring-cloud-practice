@@ -13,48 +13,47 @@ public class Line extends IDEntity {
 
     @Column(name = "name")
     private String name;
+
+    /**
+     * 出发城市
+     */
+    @Column(name = "start_city")
+    private String startCity;
     /**
      * 副标题
      */
     @Column(name = "subtitle")
     private String subtitle;
-
     /**
      * 线路编号
      */
     @Column(name = "code")
     private String code;
-
     /**
      * 订单处理方式
      */
     @Column(name = "order_process_type")
-    private int orderProcessType;
-
+    private String orderProcessType;
     /**
      * 起步价
      */
     @Column(name = "starting_price")
     private Double startingPrice;
-
     /**
      * 门市价
      */
     @Column(name = "market_price")
     private Double marketPrice;
-
     /**
      * 最高可获得积分
      */
     @Column(name = "highest_score")
     private Integer highestScore;
-
     /**
      * 建议提前报名天数
      */
     @Column(name = "recommended_days_of_advance")
     private Integer recommendedDaysOfAdvance;
-
     /**
      * 简要描述
      */
@@ -92,41 +91,136 @@ public class Line extends IDEntity {
     private Integer maxUseScore;
 
     /**
-     * 特色介绍
+     * 行程介绍
      */
-    @Column(name = "featured_introduction", length = 1024)
-    private String featuredIntroduction;
+    @Column(name = "travel_introduction", length = 1024)
+    private String travelIntroduction;
+
+    /**
+     * 费用介绍
+     */
+    @Column(name = "cost_introduction", length = 1024)
+    private String costIntroduction;
 
     /**
      * 预定须知
      */
     @Column(name = "booking_information", length = 1024)
     private String bookingInformation;
-
-
     /**
      * 温馨提示
      */
     @Column(name = "tips", length = 1024)
     private String tips;
-
     /**
      * 预订流程
      */
     @Column(name = "booking_process", length = 1024)
     private String bookingProcess;
-
     /**
      * 状态
      */
     @Column(name = "status")
     private Integer status;
-
     /**
      * 排序
      */
     @Column(name = "sort")
     private Integer sort;
+    /**
+     * 隐藏
+     */
+    @Column(name = "hide")
+    private Boolean hide;
+    /**
+     * 推荐
+     */
+    @Column(name = "recommend")
+    private Boolean recommend;
+    /**
+     * 特价
+     */
+    @Column(name = "special_offer")
+    private Boolean specialOffer;
+    /**
+     * 热卖
+     */
+    @Column(name = "hot_sale")
+    private Boolean hotSale;
+    /**
+     * 新品
+     */
+    @Column(name = "new_product")
+    private Boolean newProduct;
+    /**
+     * 团购
+     */
+    @Column(name = "group_purchase")
+    private Boolean groupPurchase;
+
+    public String getStartCity() {
+        return startCity;
+    }
+
+    public void setStartCity(String startCity) {
+        this.startCity = startCity;
+    }
+
+    public Boolean getHide() {
+        return hide;
+    }
+
+    public void setHide(Boolean hide) {
+        this.hide = hide;
+    }
+
+    public Boolean getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(Boolean recommend) {
+        this.recommend = recommend;
+    }
+
+    public Boolean getSpecialOffer() {
+        return specialOffer;
+    }
+
+    public void setSpecialOffer(Boolean specialOffer) {
+        this.specialOffer = specialOffer;
+    }
+
+    public Boolean getHotSale() {
+        return hotSale;
+    }
+
+    public void setHotSale(Boolean hotSale) {
+        this.hotSale = hotSale;
+    }
+
+    public Boolean getNewProduct() {
+        return newProduct;
+    }
+
+    public void setNewProduct(Boolean newProduct) {
+        this.newProduct = newProduct;
+    }
+
+    public Boolean getGroupPurchase() {
+        return groupPurchase;
+    }
+
+    public void setGroupPurchase(Boolean groupPurchase) {
+        this.groupPurchase = groupPurchase;
+    }
+
+    public String getCostIntroduction() {
+        return costIntroduction;
+    }
+
+    public void setCostIntroduction(String costIntroduction) {
+        this.costIntroduction = costIntroduction;
+    }
 
     public String getName() {
         return name;
@@ -152,11 +246,11 @@ public class Line extends IDEntity {
         this.code = code;
     }
 
-    public int getOrderProcessType() {
+    public String getOrderProcessType() {
         return orderProcessType;
     }
 
-    public void setOrderProcessType(int orderProcessType) {
+    public void setOrderProcessType(String orderProcessType) {
         this.orderProcessType = orderProcessType;
     }
 
@@ -240,12 +334,12 @@ public class Line extends IDEntity {
         this.maxUseScore = maxUseScore;
     }
 
-    public String getFeaturedIntroduction() {
-        return featuredIntroduction;
+    public String getTravelIntroduction() {
+        return travelIntroduction;
     }
 
-    public void setFeaturedIntroduction(String featuredIntroduction) {
-        this.featuredIntroduction = featuredIntroduction;
+    public void setTravelIntroduction(String travelIntroduction) {
+        this.travelIntroduction = travelIntroduction;
     }
 
     public String getBookingInformation() {

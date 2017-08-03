@@ -13,6 +13,6 @@
         <input class="btn btn-success" type="submit" value="提交"/>
     </div>
 </div>
-<input th:fragment="id" type="hidden" id="id" name="id" th:value="${entity.id}"/>
+<input th:fragment="id" type="hidden" id="id" name="id" th:value="${entity!=null?entity.id:''}"/>
 </body>
 </html>

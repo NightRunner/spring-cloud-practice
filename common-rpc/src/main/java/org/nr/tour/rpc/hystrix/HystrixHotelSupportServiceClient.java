@@ -1,8 +1,8 @@
 package org.nr.tour.rpc.hystrix;
 
 import com.google.common.collect.Lists;
-import org.nr.tour.rpc.HotelSupportServiceClient;
 import org.nr.tour.domain.HotelSupportService;
+import org.nr.tour.rpc.HotelSupportServiceClient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

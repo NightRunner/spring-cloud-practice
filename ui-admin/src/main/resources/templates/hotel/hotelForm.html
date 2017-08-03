@@ -19,6 +19,8 @@
         <div th:replace="fragments/crud/new-select :: dict('brand','hotelBrand','![所属品牌]')"></div>
         <div th:replace="fragments/crud/new-select :: dict('type','hotelType','![类型]')"></div>
         <div th:replace="fragments/crud/new-select :: dict('level','hotelLevel','![级别]')"></div>
+        <div th:replace="fragments/crud/new-input :: number('startingPrice','![起售价]')"></div>
+        <div th:replace="fragments/crud/new-input :: number('marketPrice','![门市价]')"></div>
         <div th:include="fragments/crud/date-picker :: yyyy-mm-dd-not-required-labeled('openingTime','开业时间')"></div>
         <div th:include="fragments/crud/date-picker :: yyyy-mm-dd-not-required-labeled('decorationTime','装修时间')"></div>
         <div th:replace="fragments/crud/new-input :: text('address','![地址]')"></div>
@@ -62,8 +64,8 @@
         <div class="form-group">
             <span class="col-sm-2 control-label" for="briefDescription">状态:</span>
             <div class="col-sm-10">
-                <input type="checkbox" name="hide" th:checked="${entity.hide}" id="hide"/><label for="hide">隐藏</label>
-                <input type="checkbox" name="recommend" th:checked="${entity.recommend}" id="recommend"/><label
+                <input type="checkbox" name="hide" id="hide"/><label for="hide">隐藏</label>
+                <input type="checkbox" name="recommend" id="recommend"/><label
                     for="recommend">推荐</label>
             </div>
         </div>

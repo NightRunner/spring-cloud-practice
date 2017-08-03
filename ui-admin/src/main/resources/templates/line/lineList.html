@@ -26,12 +26,12 @@
             <td th:text="${entity.name}">Oranges</td>
             <td th:text="${entity.subtitle}">Oranges</td>
             <td>
-                <!--<span th:if="${#bools.isTrue(entity.recommend)}" class="label label-success">推荐</span>-->
-                <!--<span th:if="${#bools.isFalse(entity.recommend)}" class="label label-danger">不推荐</span>-->
+                <span th:if="${#bools.isTrue(entity.recommend)}" class="label label-success">推荐</span>
+                <span th:if="${#bools.isFalse(entity.recommend)}" class="label label-danger">不推荐</span>
             </td>
             <td>
-                <!--<span th:if="${#bools.isTrue(entity.hide)}" class="label label-danger">隐藏</span>-->
-                <!--<span th:if="${#bools.isFalse(entity.hide)}" class="label label-success">未隐藏</span>-->
+                <span th:if="${#bools.isTrue(entity.hide)}" class="label label-danger">隐藏</span>
+                <span th:if="${#bools.isFalse(entity.hide)}" class="label label-success">未隐藏</span>
             </td>
             <td><a class="btn btn-primary btn-sm" th:href="@{/line/form(id=${entity.id})}">修改</a>
                 <a class="btn btn-danger btn-sm"

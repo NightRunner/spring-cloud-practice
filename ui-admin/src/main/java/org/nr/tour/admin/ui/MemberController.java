@@ -1,6 +1,7 @@
 package org.nr.tour.admin.ui;
 
 import org.nr.tour.common.util.JsonService;
+import org.nr.tour.common.util.MD5Util;
 import org.nr.tour.constant.PageConstants;
 import org.nr.tour.domain.Member;
 import org.nr.tour.domain.PageImplWrapper;
@@ -39,6 +40,9 @@ public class MemberController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Member save(@ModelAttribute Member member) {
+        if (!StringUtils.isEmpty(member.getPassword())) {
+            member.setPassword(MD5Util.md5(member.getPassword()));
+        }
         return hystrixMemberServiceClient.save(jsonService.toJson(member));
     }
 
@@ -57,14 +61,14 @@ public class MemberController {
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String form(Model model, @RequestParam(value = "id", required = false) String id) {
 
-        Member Member = null;
+        Member member = null;
         if (StringUtils.isEmpty(id)) {
-            Member = new Member();
+            member = new Member();
         } else {
-            Member = hystrixMemberServiceClient.getById(id);
+            member = hystrixMemberServiceClient.getById(id);
         }
 
-        model.addAttribute("entity", Member);
+        model.addAttribute("entity", member);
 
         return "member/memberForm";
     }
