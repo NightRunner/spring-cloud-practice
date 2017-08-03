@@ -12,7 +12,6 @@
         <module>platform-config-server</module>
         <module>platform-eureka-server</module>
         <module>platform-admin-dashboard</module>
-        <module>platform-hystrix-dashboard</module>
         <module>platform-zipkin-server</module>
         <module>platform-zuul</module>
         <module>common-domain</module>
@@ -31,6 +30,7 @@
         <module>service-visa</module>
         <module>api</module>
         <module>service-verify-code</module>
+        <module>common-service-base</module>
     </modules>
 
     <parent>

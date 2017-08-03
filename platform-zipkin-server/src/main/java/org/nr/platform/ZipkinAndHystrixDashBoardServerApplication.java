@@ -5,16 +5,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.turbine.EnableTurbine;
+import zipkin.server.EnableZipkinServer;
 
 /**
  * @author chenhaiyang <690732060@qq.com>
  */
 @SpringBootApplication
+@EnableZipkinServer
 @EnableEurekaClient
 @EnableHystrixDashboard
 @EnableTurbine
-public class HystrixDashboardApplication {
+public class ZipkinAndHystrixDashBoardServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HystrixDashboardApplication.class, args);
+        SpringApplication.run(ZipkinAndHystrixDashBoardServerApplication.class, args);
     }
 }
