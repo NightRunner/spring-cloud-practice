@@ -16,10 +16,15 @@
 ##项目启动步骤
 
 启动前的准备:
+
 1.安装并运行rabbit-mq
+
 2.安装jdk8
+
 3.安装maven 3.x & 在项目根目录运行命令: `mvn clean package`
+
 4.安装并运行mysql(创建数据库tour,并执行/script/tour.sql:进入到tour数据库后执行`source tour.sql绝对路径`  命令即可)
+
 5.修改数据库密码(password)位置如下:
 ```
 platform-config-server/src/main/resources:
