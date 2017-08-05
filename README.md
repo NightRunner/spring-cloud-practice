@@ -21,7 +21,7 @@
 
 2.安装jdk8
 
-3.安装maven 3.x & 在项目根目录运行命令: `mvn clean package`
+3.安装maven 3.x 
 
 4.安装并运行mysql(创建数据库tour,并执行/script/tour.sql:进入到tour数据库后执行`source tour.sql绝对路径`  命令即可)
 
@@ -44,6 +44,13 @@ platform-config-server/src/main/resources:
 
 windows项目运行步骤:
 ```
+
+cd script
+
+call install-jars.bat
+
+cd ..
+
 mvn clean package
 
 start /b java -Xmx256m -jar platform-eureka-server/target/platform-eureka-server-1.0.0-SNAPSHOT.jar >.\log\eureka-server.log &
@@ -67,6 +74,13 @@ start /b java -Xmx256m -jar service-oss\target\oss-service-1.0.0-SNAPSHOT.jar  >
 
 linux
 ```
+
+cd script
+
+sh ./install-jars.sh
+
+cd ..
+
 mvn clean package
 
 java -Xmx256m -jar platform-eureka-server\target\platform-eureka-server-1.0.0-SNAPSHOT.jar >./log/eureka-server.log &
